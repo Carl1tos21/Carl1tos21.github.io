@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brisseida Flores - Rosas Eternas de Papel</title>
+    <style>
+        /* Estilos Generales */
+        :root {
+            --primary-color: #e83f6f; /* Rosa más vibrante */   
+            --secondary-color: #ffb7c5; /* Rosa claro */
+            --text-color: #333;
+            --light-gray: #f8f9fa;
+            --dark-gray: #495057;
+            --font-heading: 'Dancing Script', cursive;
+            --font-body: 'Roboto', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-color);
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header p {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--text-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 5px 10px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+                        url('Flower.jpg') center/cover;
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-color);
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #c72c4d;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* About Section */
+        .about {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%; /* Makes the image round */
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            margin: 30px auto;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 50px 0;
+            background-color: var(--light-gray);
+            text-align: center;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        .gallery-item h3 {
+            font-family: var(--font-body);
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin: 15px 0 10px;
+        }
+
+        .gallery-item p {
+            font-size: 0.95rem;
+            color: var(--dark-gray);
+            padding: 0 15px 15px;
+            margin-bottom: 0;
+        }
+
+
+        /* Contact Section */
+        .contact {
+            padding: 50px 0;
+            background-color: var(--secondary-color);
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .hero {
+                padding: 50px 15px;
+            }
+
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr; /* Stack items on small screens */
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Brisseila Flores Chilo</h1>
+            <p>Rosas Eternas de Papel</p>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sobre-mi">Sobre Mí</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h2>¡Bienvenidos al mundo de la belleza que perdura!</h2>
+            <p>Cada rosa es una obra de arte creada con pasión y dedicación, para decorar tus momentos especiales.</p>
+            <a href="#contacto" class="btn">Contáctame</a>
+        </div>
+    </section>
+
+    <section id="sobre-mi" class="about">
+        <div class="container">
+            <h2>Sobre Mí</h2>
+            <img src="Perfil.jpg" alt="Brisseila Flores Chilo" class="about-image">
+            <p>Hola, soy Brisseila Flores Chilo, artesana especializada en la creación de rosas eternas de papel. Cada pieza que creo está hecha a mano con materiales de alta calidad y mucho amor, capturando la belleza de las flores naturales en un formato que perdura en el tiempo.</p>
+            <p>Mi objetivo es brindarte piezas únicas que puedan decorar tus espacios especiales o ser el regalo perfecto para esas personas importantes en tu vida.</p>
+        </div>
+    </section>
+
+    ---
+    <section id="galeria" class="gallery">
+        <div class="container">
+            <h2>Nuestra Galería de Rosas</h2>
+            <p>Descubre la variedad y el detalle de nuestras rosas eternas.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="Foto1.jpg" alt="Rosa Eterna Clásica">
+                    <h3>Rosa Clásica Roja</h3>
+                    <p>Una rosa roja vibrante, perfecta para expresar amor y pasión.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Foto2.jpg" alt="Rosa Eterna Rosa Suave">
+                    <h3>Ramos con Dulces</h3>
+                    <p>Un tono suave y elegante, ideal para un toque de ternura.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Foto3.jpg" alt="Rosa Eterna Blanca Pura">
+                    <h3>Rosa Pura Blanca</h3>
+                    <p>Símbolo de pureza y elegancia, perfecta para cualquier ocasión.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Foto4.jpg" alt="Arreglo de Rosas Varias">
+                    <h3>Arreglo Mixto</h3>
+                    <p>Una combinación de colores para un impacto visual sorprendente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    ---
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2>Contacto</h2>
+            <p>¿Interesado en mis creaciones o tienes alguna pregunta?</p>
+            <div class="contact-info">
+                <p><strong>Teléfono:</strong> <a href="tel:+59167295628">+591 67295628</a></p>
+                <p><strong>Correo:</strong> <a href="brisseilafloreschilo@gmail.com.com">brisseilafloreschilo@gmail.com</a></p>
+            </div>
+            <div class="social-links">
+                <p>Sígueme en redes sociales:</p>
+                <a href="#" target="_blank">Instagram</a>
+                <a href="#" target="_blank">Facebook</a>    
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Brisseila Flores Chilo - Rosas Eternas de Papel. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
