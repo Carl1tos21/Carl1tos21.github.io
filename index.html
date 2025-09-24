@@ -6,13 +6,13 @@
     <style>
         /* Estilos Generales */
         :root {
-            --primary-color: #e83f6f; /* Rosa más vibrante */   
+            --primary-color: #e83f6f; /* Rosa más vibrante */    
             --secondary-color: #ffb7c5; /* Rosa claro */
             --text-color: #333;
             --light-gray: #f8f9fa;
             --dark-gray: #495057;
             --font-heading: 'Dancing Script', cursive;
-            --font-body: 'Roboto', sans-serif;
+            --font-body: 'Roboto', sans-serif; /* Usaremos Roboto para todos los p */
         }
 
         * {
@@ -52,7 +52,9 @@
             margin-bottom: 25px;
         }
 
+        /* Estilo para todos los párrafos <p> */
         p {
+            font-family: var(--font-body); /* Asegura que todos los p usen Roboto */
             font-size: 1.1rem;
             margin-bottom: 15px;
         }
@@ -80,7 +82,7 @@
         }
 
         header p {
-            font-family: var(--font-heading);
+            font-family: var(--font-heading); /* El párrafo del header mantiene Dancing Script */
             font-size: 1.3rem;
             color: var(--text-color);
         }
@@ -166,10 +168,17 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        /* Gallery Section */
+        /* Gallery Section y Catálogos */
         .gallery {
             padding: 50px 0;
             background-color: var(--light-gray);
+            text-align: center;
+        }
+        
+        /* Estilos para la sección de ramos naturales (fondo blanco) */
+        .catalog-section {
+            padding: 50px 0;
+            background-color: #fff;
             text-align: center;
         }
 
@@ -181,7 +190,7 @@
         }
 
         .gallery-item {
-            background-color: #fff;
+            background-color: var(--light-gray);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -208,12 +217,19 @@
         }
 
         .gallery-item p {
-            font-size: 0.95rem;
+            font-size: 0.95rem; /* Ajuste el tamaño para los párrafos de descripción */
             color: var(--dark-gray);
             padding: 0 15px 15px;
             margin-bottom: 0;
         }
-
+        
+        .gallery-item .price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: -5px;
+            margin-bottom: 10px;
+        }
 
         /* Contact Section */
         .contact {
@@ -310,7 +326,9 @@
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#sobre-mi">Sobre Mí</a></li>
-                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#galeria">Rosas de Papel</a></li>
+                    <li><a href="#catalogo-hw">Hot Wheels</a></li>
+                    <li><a href="#catalogo-naturales">Ramos Naturales</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
@@ -331,54 +349,143 @@
             <img src="Perfil.jpg" alt="Brisseila Flores Chilo" class="about-image">
             <p>Hola, soy Brisseila Flores Chilo, artesana especializada en la creación de rosas eternas de papel. Cada pieza que creo está hecha a mano con materiales de alta calidad y mucho amor, capturando la belleza de las flores naturales en un formato que perdura en el tiempo.</p>
             <p>Mi objetivo es brindarte piezas únicas que puedan decorar tus espacios especiales o ser el regalo perfecto para esas personas importantes en tu vida.</p>
+            <p>También ofrecemos opciones de personalización para que cada arreglo sea único.</p> 
         </div>
     </section>
 
     <section id="galeria" class="gallery">
         <div class="container">
-            <h2>Nuestra Galería de Rosas</h2>
+            <h2>Nuestra Galería de Rosas de Papel</h2>
             <p>Descubre la variedad y el detalle de nuestras rosas eternas.</p>
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="Foto1.jpg" alt="Rosa Eterna Clásica">
                     <h3>Rosa Clásica Roja</h3>
                     <p>Una rosa roja vibrante, perfecta para expresar amor y pasión.</p>
+                    <p class="price">Precio: $15.00</p>
                 </div>
                 <div class="gallery-item">
-                    <img src="Foto2.jpg" alt="Rosa Eterna Rosa Suave">
+                    <img src="Foto2.jpg" alt="Ramo de rosas con dulces">
                     <h3>Ramos con Dulces</h3>
-                    <p>Un tono suave y elegante, ideal para un toque de ternura.</p>
+                    <p>Un ramo dulce y elegante, ideal para un toque de ternura.</p>
+                    <p class="price">Precio: $25.00</p>
                 </div>
                 <div class="gallery-item">
                     <img src="Foto3.jpg" alt="Rosa Eterna Blanca Pura">
                     <h3>Rosa Pura Blanca</h3>
                     <p>Símbolo de pureza y elegancia, perfecta para cualquier ocasión.</p>
+                    <p class="price">Precio: $18.00</p>
                 </div>
                 <div class="gallery-item">
                     <img src="Foto4.jpg" alt="Arreglo de Rosas Varias">
                     <h3>Arreglo Mixto</h3>
                     <p>Una combinación de colores para un impacto visual sorprendente.</p>
+                    <p class="price">Precio: $35.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogo-hw" class="catalog-section">
+        <div class="container">
+            <h2>Catálogo de Ramos Hot Wheels</h2>
+            <p>Para los amantes de la velocidad y los detalles únicos. Cada ramo incluye rosas de papel y autos Hot Wheels, ¡una combinación que sorprende!</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="Foto5.jpg" alt="Ramo Hot Wheels Clásico">
+                    <h3>Ramo de 5 Autos</h3>
+                    <p>Un clásico con cinco autos Hot Wheels y rosas eternas. ¡Ideal para el fanático de los coches!</p>
+                    <p class="price">Precio: $40.00</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Foto6.jpg" alt="Ramo Hot Wheels con dulces">
+                    <h3>Ramo con Chocolate</h3>
+                    <p>La combinación perfecta de autos, flores y dulces para un regalo inolvidable.</p>
+                    <p class="price">Precio: $45.00</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Foto7.jpg" alt="Ramo Hot Wheels personalizado">
+                    <h3>Ramo Personalizado</h3>
+                    <p>Elige tus autos favoritos y el color de las rosas para crear un ramo único.</p>
+                    <p class="price">Precio: Consultar</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Foto8.jpg" alt="Ramo Hot Wheels Clásico 2">
+                    <h3>Ramo de 10 Autos</h3>
+                    <p>Un ramo más grande con diez autos Hot Wheels para los coleccionistas.</p>
+                    <p class="price">Precio: $65.00</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Foto10.jpg" alt="Arreglo Hot Wheels en caja">
+                    <h3>Arreglo en Caja</h3>
+                    <p>Autos y rosas en una elegante caja, ideal para un regalo especial.</p>
+                    <p class="price">Precio: $55.00</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Foto9.jpg" alt="Ramo de Hot Wheels con luces">
+                    <h3>Ramo con Luces LED</h3>
+                    <p>Un toque extra de magia con luces incorporadas para un regalo espectacular.</p>
+                    <p class="price">Precio: $50.00</p>
+                </div>
+                 <div class="gallery-item">
+                    <img src="Foto11.jpg" alt="Ramo Hot Wheels Premium">
+                    <h3>Ramo Premium</h3>
+                    <p>Ramo con camisetas de futbol de tu equipo favorito  edición especial y rosas de lujo.</p>
+                    <p class="price">Precio: $75.00</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Foto12.jpg" alt="Colección Hot Wheels Grande">
+                    <h3>Colección Grande</h3>
+                    <p>Un impresionante arreglo con una gran variedad de autos Hot Wheels.</p>
+                    <p class="price">Precio: Consultar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogo-naturales" class="gallery">
+        <div class="container">
+            <h2>Catálogo de Ramos de Flores Naturales</h2>
+            <p>La belleza y frescura de las flores de temporada, preparadas en ramos únicos.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="Foto13.jpg" alt="Ramo de rosas naturales">
+                    <h3>Ramo de Rosas Rojas</h3>
+                    <p>Un clásico atemporal para celebrar el amor y la pasión.</p>
+                    <p class="price">Precio: $50.00</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Foto14.jpg" alt="Ramo mixto de flores naturales">
+                    <h3>Ramo de Lirios y Rosas</h3>
+                    <p>Una combinación elegante de flores para cualquier ocasión.</p>
+                    <p class="price">Precio: $60.00</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Foto15.jpg" alt="Bouquet de flores de campo">
+                    <h3>Bouquet de Flores de Campo</h3>
+                    <p>Un arreglo rústico y encantador, con la frescura del campo.</p>
+                    <p class="price">Precio: $45.00</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="contacto" class="contact">
-    <div class="container">
-        <h2>Contacto</h2>
-        <p>¿Interesado en mis creaciones o tienes alguna pregunta?</p>
-        <div class="contact-info">
-            <p><strong>Teléfono:</strong> <a href="tel:+59167295628">+591 67295628</a></p>
-            <p><strong>Correo:</strong> <a href="mailto:brisseilafloreschilo@gmail.com">brisseilafloreschilo@gmail.com</a></p>
-            <p><strong>WhatsApp:</strong> <a href="https://wa.me/59167295628" target="_blank">+591 67295628</a></p>
+        <div class="container">
+            <h2>Contacto</h2>
+            <p>¿Interesado en mis creaciones o tienes alguna pregunta?</p>
+            <div class="contact-info">
+                <p><strong>Teléfono:</strong> <a href="tel:+59167295628">+591 67295628</a></p>
+                <p><strong>Correo:</strong> <a href="mailto:brisseilafloreschilo@gmail.com">brisseilafloreschilo@gmail.com</a></p>
+                <p><strong>WhatsApp:</strong> <a href="https://wa.me/59167295628" target="_blank">+591 67295628</a></p>
+            </div>
+            <div class="social-links">
+                <p>Sígueme en redes sociales:</p>
+                <a href="https://www.instagram.com/brisseilaflores.eternas/" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/brisseila.fores.chilo" target="_blank">Facebook</a>    
+            </div>
         </div>
-        <div class="social-links">
-            <p>Sígueme en redes sociales:</p>
-            <a href="https://www.instagram.com/brisseilaflores.eternas/" target="_blank">Instagram</a>
-            <a href="https://www.facebook.com/brisseila.fores.chilo" target="_blank">Facebook</a>    
-        </div>
-    </div>
-</section>
+    </section>
 
     <footer>
         <div class="container">
@@ -386,4 +493,4 @@
         </div>
     </footer>
 </body>
-</html>
+
