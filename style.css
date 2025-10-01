@@ -1,0 +1,383 @@
+/* Estilos Generales */
+:root {
+    --primary-color: #e83f6f; /* Rosa más vibrante */
+    --secondary-color: #ffb7c5; /* Rosa claro */
+    --text-color: #333;
+    --light-gray: #f8f9fa;
+    --dark-gray: #495057;
+    --font-heading: 'Dancing Script', cursive;
+    --font-body: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+/* Estilo para todos los párrafos <p> */
+p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Header */
+header {
+    background-color: var(--secondary-color);
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header p {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 5px 10px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+                url('Flower.jpg') center/cover;
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--text-color);
+}
+
+.hero h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #c72c4d;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* About Section */
+.about {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.about p {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 30px auto;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Gallery Section y Catálogos */
+.gallery, .catalog-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.gallery {
+    background-color: var(--light-gray);
+}
+
+.catalog-section {
+    background-color: #fff;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.gallery-item {
+    background-color: var(--light-gray);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.gallery-item h3 {
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin: 15px 0 10px;
+}
+
+.gallery-item p {
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+    padding: 0 15px 15px;
+    margin-bottom: 0;
+}
+
+.gallery-item .price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+
+/* Contact Section */
+.contact {
+    padding: 50px 0;
+    background-color: var(--secondary-color);
+    text-align: center;
+}
+
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    font-weight: 500;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-gray);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* RESPONSIVE CSS - Ajustes para la desproporción de las fuentes en móvil */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+    /* Ajustes para tabletas y móviles grandes */
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Reducimos la fuente base de los párrafos */
+    p {
+        font-size: 1rem; 
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes para la mayoría de celulares (donde la desproporción era mayor) */
+    .container {
+        padding: 10px 0;
+    }
+    
+    /* Títulos más pequeños */
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+    
+    /* Párrafos más pequeños en móvil (solución clave) */
+    p {
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        padding: 50px 15px;
+    }
+
+    .hero h2 {
+        font-size: 1.6rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .about-image {
+        width: 180px;
+        height: 180px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    /* Ajustes para la navegación */
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px 0;
+        border-radius: 5px;
+    }
+    
+    nav ul li a:hover {
+        background-color: var(--primary-color);
+        color: white;
+        border-color: transparent;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item img {
+        height: 180px;
+    }
+    
+    /* Texto de productos más pequeño */
+    .gallery-item h3 {
+        font-size: 1.1rem; 
+    }
+
+    .gallery-item p {
+        font-size: 0.85rem;
+    }
+    
+    .gallery-item .price {
+        font-size: 1rem;
+    }
+}
