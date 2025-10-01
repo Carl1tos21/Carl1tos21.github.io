@@ -259,6 +259,8 @@ footer {
     font-size: 0.9rem;
 }
 
+/* ... (Resto de tu código CSS principal) ... */
+
 /* ------------------------------------------------------------------ */
 /* RESPONSIVE CSS - Ajustes para la desproporción de las fuentes en móvil */
 /* ------------------------------------------------------------------ */
@@ -273,7 +275,7 @@ footer {
         font-size: 1.8rem;
     }
 
-    /* Reducimos la fuente base de los párrafos */
+    /* CLAVE 1: Reducimos la fuente base de los párrafos en pantallas medianas */
     p {
         font-size: 1rem; 
     }
@@ -296,7 +298,7 @@ footer {
 }
 
 @media (max-width: 480px) {
-    /* Ajustes para la mayoría de celulares (donde la desproporción era mayor) */
+    /* Ajustes para la mayoría de celulares */
     .container {
         padding: 10px 0;
     }
@@ -310,7 +312,7 @@ footer {
         font-size: 1.4rem;
     }
     
-    /* Párrafos más pequeños en móvil (solución clave) */
+    /* CLAVE 2: Párrafos más pequeños en móvil (La solución directa al problema de la imagen) */
     p {
         font-size: 0.9rem;
     }
