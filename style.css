@@ -38,7 +38,7 @@ body {
     font-family: 'Dancing Script', cursive;
     font-size: clamp(2.5rem, 5vw + 1rem, 3.5rem);
     margin: 0;
-    color: #ffffff; /* Sigue siendo blanco para contraste en header oscuro */
+    color: #ffffff;
 }
 
 h1, h2, h3 {
@@ -48,7 +48,7 @@ h1, h2, h3 {
 
 h2 {
     font-size: clamp(1.8rem, 3vw + 1rem, 2.5rem);
-    color: var(--primary-color); /* Encabezados principales en rosa femenino */
+    color: var(--primary-color);
 }
 
 h3 {
@@ -59,7 +59,7 @@ h3 {
 .tagline {
     font-family: 'Dancing Script', cursive;
     font-size: clamp(1.5rem, 3vw + 0.5rem, 2rem);
-    color: #ffffff; /* Blanco para contraste en header oscuro */
+    color: #ffffff;
     margin: 0 0 1.5rem;
 }
 
@@ -67,7 +67,7 @@ h3 {
    HEADER Y NAVEGACIÓN
 ================================ */
 .main-header {
-    background: var(--header-footer-bg); /* Morado oscuro */
+    background: var(--header-footer-bg);
     padding: 1.5rem 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: sticky;
@@ -93,7 +93,7 @@ h3 {
 }
 
 .main-nav ul li a {
-    color: #ffffff; /* Enlaces blancos en el header */
+    color: #ffffff;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 300;
@@ -103,7 +103,7 @@ h3 {
 }
 
 .main-nav ul li a:hover {
-    color: var(--primary-color); /* Rosa frambuesa al pasar el mouse */
+    color: var(--primary-color);
     border-bottom: 2px solid var(--primary-color);
 }
 
@@ -121,13 +121,13 @@ h3 {
 }
 
 .primary-btn {
-    background: var(--primary-color); /* Fondo del botón en rosa frambuesa */
+    background: var(--primary-color);
     color: #ffffff;
     border: 2px solid var(--primary-color);
 }
 
 .primary-btn:hover {
-    background: var(--secondary-color); /* Rosa oscuro al pasar el mouse */
+    background: var(--secondary-color);
     border-color: var(--secondary-color);
     transform: translateY(-2px);
 }
@@ -141,25 +141,22 @@ section {
 }
 
 .bg-light {
-    background: var(--background-light); /* Fondo rosa muy claro */
+    background: var(--background-light);
 }
 
 /* --- HERO SECTION --- */
 .hero-section {
-    /* Necesitarás una imagen de fondo (ej: hero-bg.jpg) para este efecto */
-    background: linear-gradient(rgba(76, 42, 76, 0.6), rgba(76, 42, 76, 0.6)), url('hero-bg.jpg') no-repeat center center/cover; /* Morado oscuro con imagen */
+    background: linear-gradient(rgba(76, 42, 76, 0.6), rgba(76, 42, 76, 0.6)), url('hero-bg.jpg') no-repeat center center/cover;
     color: #ffffff;
     padding: 6rem 1.5rem;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
-/* Fallback si no tienes hero-bg.jpg */
 .hero-section:not([style*="background-image"]) {
-     background: var(--header-footer-bg); /* Usa el morado oscuro como fallback */
+     background: var(--header-footer-bg);
 }
 
-
 .hero-section h2 {
-    color: #ffffff; /* H2 del hero en blanco */
+    color: #ffffff;
     font-size: clamp(2.5rem, 5vw + 1rem, 3.5rem);
     margin-bottom: 1.5rem;
 }
@@ -167,12 +164,12 @@ section {
 /* --- ABOUT SECTION --- */
 .about-info {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Siempre en columna por defecto */
     align-items: center;
     gap: 2rem;
     max-width: 900px;
     margin: 0 auto;
-    text-align: left;
+    text-align: center; /* Texto centrado en móviles */
 }
 
 .profile-image {
@@ -180,16 +177,9 @@ section {
     object-fit: cover;
     width: clamp(180px, 20vw, 250px);
     height: clamp(180px, 20vw, 250px);
-    border: 6px solid var(--primary-color); /* Borde de la imagen en rosa */
+    border: 6px solid var(--primary-color);
     box-shadow: var(--shadow-light);
     flex-shrink: 0;
-}
-
-@media (min-width: 768px) {
-    .about-info {
-        flex-direction: row;
-        text-align: left;
-    }
 }
 
 /* --- PRODUCTOS / GALERÍA --- */
@@ -223,7 +213,7 @@ section {
 
 .product-item h3 {
     padding: 1rem 0;
-    color: var(--secondary-color); /* Títulos de productos en rosa oscuro */
+    color: var(--secondary-color);
 }
 
 .product-item p {
@@ -233,14 +223,14 @@ section {
 
 .price-tag {
     font-weight: 600;
-    color: var(--primary-color); /* Precios en rosa frambuesa */
+    color: var(--primary-color);
     font-size: 1.2rem;
     padding-bottom: 1rem;
     margin-bottom: 0;
 }
 
 .price-special {
-    color: var(--text-color); /* Precios "consultar" en gris suave */
+    color: var(--text-color);
     font-style: italic;
     font-size: 1.1rem;
 }
@@ -262,7 +252,7 @@ section {
 }
 
 .contact-item strong {
-    color: var(--primary-color); /* Títulos de contacto en rosa frambuesa */
+    color: var(--primary-color);
     font-weight: 600;
     display: block;
     margin-bottom: 0.3rem;
@@ -276,11 +266,11 @@ section {
 }
 
 .contact-link:hover {
-    color: var(--primary-color); /* Rosa frambuesa al pasar el mouse */
+    color: var(--primary-color);
 }
 
 .whatsapp-link {
-    color: #25D366; 
+    color: #25D366;
     font-weight: 600;
 }
 
@@ -315,8 +305,8 @@ section {
    FOOTER
 ================================ */
 .main-footer {
-    background: var(--header-footer-bg); /* Morado oscuro */
-    color: #d1b4d1; /* Un lavanda suave para el texto del footer */
+    background: var(--header-footer-bg);
+    color: #d1b4d1;
     padding: 1.5rem 1rem;
     text-align: center;
     font-size: 0.9rem;
@@ -324,6 +314,138 @@ section {
 
 .main-footer p {
     margin: 0;
+}
+
+/* ================================
+   MEDIA QUERIES (RESPONSIVE DESIGN)
+================================ */
+
+/* Para tablets y pantallas un poco más grandes (ej. > 768px) */
+@media (min-width: 768px) {
+    .header-content {
+        flex-direction: row; /* Header en fila en pantallas más grandes */
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    .main-nav {
+        margin-top: 0; /* Eliminar margen superior de nav */
+    }
+
+    .main-nav ul {
+        flex-wrap: nowrap; /* No envolver en pantallas más grandes */
+        gap: 1rem; /* Espaciado ajustado para evitar que se amontonen */
+    }
+    
+    .logo {
+        margin-right: 1.5rem; /* Espacio entre logo y nav */
+    }
+
+    .tagline {
+        display: none; /* Ocultar tagline en pantallas más grandes si el logo es suficiente */
+    }
+
+    .about-info {
+        flex-direction: row; /* Imagen al lado del texto */
+        text-align: left;
+    }
+
+    .about-info div { /* Alinear texto "Sobre Mí" */
+        text-align: left;
+    }
+    
+    .contact-grid {
+        flex-direction: row; /* Elementos de contacto en fila */
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .contact-item {
+        flex: 1 1 30%; /* Ajustar tamaño para 3 columnas o 2 */
+        max-width: 300px;
+    }
+}
+
+/* Para pantallas de escritorio (ej. > 1024px) */
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 2rem; /* Más padding en los lados */
+    }
+
+    section {
+        padding: 6rem 2rem; /* Más padding vertical */
+    }
+
+    .main-nav ul {
+        gap: 2rem; /* Más espacio entre los elementos de navegación */
+    }
+
+    .logo {
+        font-size: 3.8rem; /* Logo un poco más grande */
+    }
+
+    h2 {
+        font-size: 3rem; /* Títulos de sección más grandes */
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Elementos un poco más grandes */
+        gap: 2.5rem;
+    }
+}
+
+/* Para pantallas muy pequeñas (ej. < 480px, ajuste fino) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem; /* Menos padding en los lados */
+    }
+
+    section {
+        padding: 3rem 1rem; /* Menos padding vertical */
+    }
+
+    .main-header {
+        padding: 1rem 0;
+    }
+    .logo {
+        font-size: 2rem; /* Logo más pequeño en pantallas muy pequeñas */
+        margin-bottom: 0.5rem;
+    }
+    .tagline {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    .main-nav ul {
+        gap: 0.8rem; /* Menos espacio entre ítems del menú en móviles */
+    }
+    .main-nav ul li a {
+        font-size: 0.9rem;
+        padding: 3px 8px;
+    }
+
+    .hero-section h2 {
+        font-size: 2rem; /* H2 del hero más pequeño en móviles */
+    }
+    .hero-section p {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .product-item img {
+        height: 200px; /* Reducir altura de imágenes de productos */
+    }
+
+    .price-tag {
+        font-size: 1.1rem;
+    }
+    
+    .social-link {
+        margin: 0 5px; /* Menos margen entre iconos sociales */
+    }
 }
 
 
