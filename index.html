@@ -1,17 +1,348 @@
 <!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brisseila Flores - Rosas Eternas de Papel</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ================================
+           ESTILOS GENERALES Y RESET
+        ================================ */
+        :root {
+            --primary-color: #d82d47; /* Rojo/Rosa vibrante */
+            --secondary-color: #9e1a1a; /* Rojo más oscuro para hover */
+            --text-color: #333333;
+            --background-light: #fefefe; /* Blanco hueso suave */
+            --header-footer-bg: #1c1c1c; /* Gris oscuro elegante */
+            --border-radius: 8px;
+            --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ================================
+           TIPOGRAFÍA Y HEADINGS
+        ================================ */
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.5rem, 5vw + 1rem, 3.5rem);
+            margin: 0;
+            color: #ffffff;
+        }
+
+        h1, h2, h3 {
+            margin: 0 0 1rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 3vw + 1rem, 2.5rem);
+            color: var(--primary-color);
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 2vw + 0.8rem, 1.5rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.5rem, 3vw + 0.5rem, 2rem);
+            color: #ffffff;
+            margin: 0 0 1.5rem;
+        }
+
+        /* ================================
+           HEADER Y NAVEGACIÓN
+        ================================ */
+        .main-header {
+            background: var(--header-footer-bg);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 1.5rem;
+            margin: 1rem 0 0 0;
+            padding: 0;
+            justify-content: center;
+        }
+
+        .main-nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 300;
+            padding: 5px 10px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav ul li a:hover {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* ================================
+           BOTONES
+        ================================ */
+        .btn {
+            display: inline-block;
+            font-size: 1.1rem;
+            padding: 12px 28px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .primary-btn {
+            background: var(--primary-color);
+            color: #ffffff;
+            border: 2px solid var(--primary-color);
+        }
+
+        .primary-btn:hover {
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* ================================
+           SECCIONES Y LAYOUT
+        ================================ */
+        section {
+            padding: 5rem 1.5rem;
+            text-align: center;
+        }
+
+        .bg-light {
+            background: var(--background-light);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            /* Necesitarás una imagen de fondo (ej: hero-bg.jpg) para este efecto */
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('hero-bg.jpg') no-repeat center center/cover; 
+            color: #ffffff;
+            padding: 6rem 1.5rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Fallback si no tienes hero-bg.jpg */
+        .hero-section:not([style*="background-image"]) {
+             background: var(--primary-color); 
+        }
+
+        .hero-section h2 {
+            color: #ffffff;
+            font-size: clamp(2.5rem, 5vw + 1rem, 3.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .profile-image {
+            border-radius: 50%;
+            object-fit: cover;
+            width: clamp(180px, 20vw, 250px);
+            height: clamp(180px, 20vw, 250px);
+            border: 6px solid var(--primary-color);
+            box-shadow: var(--shadow-light);
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .about-info {
+                flex-direction: row;
+                text-align: left;
+            }
+        }
+
+        /* --- PRODUCTOS / GALERÍA --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-item {
+            background: #ffffff;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-item h3 {
+            padding: 1rem 0;
+            color: var(--secondary-color);
+        }
+
+        .product-item p {
+            padding: 0 1rem;
+            font-size: 0.95rem;
+        }
+
+        .price-tag {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            padding-bottom: 1rem;
+            margin-bottom: 0;
+        }
+
+        .price-special {
+            color: var(--text-color);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        
+        /* --- CONTACTO SECTION --- */
+        .contact-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+
+        .contact-item {
+            padding: 1rem;
+            background: #ffffff;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-item strong {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: var(--primary-color);
+        }
+
+        .whatsapp-link {
+            color: #25D366; 
+            font-weight: 600;
+        }
+
+        .social-links-container {
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 0 10px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            opacity: 0.8;
+        }
+
+        .instagram {
+            /* Gradiente de Instagram */
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .facebook {
+            background: #4267B2;
+        }
+        /* ================================
+           FOOTER
+        ================================ */
+        .main-footer {
+            background: var(--header-footer-bg);
+            color: #b3b3b3;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .main-footer p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Brisseila Flores Chilo</h1>
-            <p>Rosas Eternas de Papel</p>
-            <nav>
+    <header class="main-header">
+        <div class="container header-content">
+            <h1 class="logo">Brisseila Flores Chilo</h1>
+            <p class="tagline">Rosas Eternas de Papel</p>
+            <nav class="main-nav">
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#sobre-mi">Sobre Mí</a></li>
@@ -24,164 +355,179 @@
         </div>
     </header>
 
-    <section id="inicio" class="hero">
+    <section id="inicio" class="hero-section">
         <div class="container">
             <h2>¡Bienvenidos al mundo de la belleza que perdura!</h2>
             <p>Cada rosa es una obra de arte creada con pasión y dedicación, para decorar tus momentos especiales.</p>
-            <a href="#contacto" class="btn">Contáctame</a>
+            <a href="#contacto" class="btn primary-btn">Contáctame</a>
         </div>
     </section>
 
-    <section id="sobre-mi" class="about">
-        <div class="container">
+    <section id="sobre-mi" class="about-section bg-light">
+        <div class="container about-content">
             <h2>Sobre Mí</h2>
-            <img src="Perfil.jpg" alt="Brisseila Flores Chilo" class="about-image">
-            <p>Hola, soy Brisseila Flores Chilo, artesana especializada en la creación de rosas eternas de papel. Cada pieza que creo está hecha a mano con materiales de alta calidad y mucho amor, capturando la belleza de las flores naturales en un formato que perdura en el tiempo.</p>
-            <p>Mi objetivo es brindarte piezas únicas que puedan decorar tus espacios especiales o ser el regalo perfecto para esas personas importantes en tu vida.</p>
-            <p>También ofrecemos opciones de personalización para que cada arreglo sea único.</p> 
+            <div class="about-info">
+                <img src="Perfil.jpg" alt="Brisseila Flores Chilo" class="profile-image">
+                <div>
+                    <p>Hola, soy Brisseila Flores Chilo, artesana especializada en la creación de **rosas eternas de papel**. Cada pieza que creo está hecha a mano con materiales de alta calidad y mucho amor, capturando la belleza de las flores naturales en un formato que perdura en el tiempo.</p>
+                    <p>Mi objetivo es brindarte piezas únicas que puedan decorar tus espacios especiales o ser el regalo perfecto para esas personas importantes en tu vida.</p>
+                    <p>También ofrecemos opciones de **personalización** para que cada arreglo sea único.</p> 
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="galeria" class="gallery">
+    <section id="galeria" class="products-section">
         <div class="container">
-            <h2>Nuestra Galería de Rosas de Papel</h2>
+            <h2>Nuestra Galería de Rosas de Papel 🌹</h2>
             <p>Descubre la variedad y el detalle de nuestras rosas eternas.</p>
             <div class="gallery-grid">
-                <div class="gallery-item">
+                <div class="product-item">
                     <img src="Foto1.jpg" alt="Rosa Eterna Clásica">
                     <h3>Rosa Clásica Roja</h3>
                     <p>Una rosa roja vibrante, perfecta para expresar amor y pasión.</p>
-                    <p class="price">Precio: $15.00</p>
+                    <p class="price-tag">Precio: **$15.00**</p>
                 </div>
-                <div class="gallery-item">
+                <div class="product-item">
                     <img src="Foto2.jpg" alt="Ramo de rosas con dulces">
                     <h3>Ramos con Dulces</h3>
                     <p>Un ramo dulce y elegante, ideal para un toque de ternura.</p>
-                    <p class="price">Precio: $25.00</p>
+                    <p class="price-tag">Precio: **$25.00**</p>
                 </div>
-                <div class="gallery-item">
+                <div class="product-item">
                     <img src="Foto3.jpg" alt="Rosa Eterna Blanca Pura">
                     <h3>Rosa Pura Blanca</h3>
                     <p>Símbolo de pureza y elegancia, perfecta para cualquier ocasión.</p>
-                    <p class="price">Precio: $18.00</p>
+                    <p class="price-tag">Precio: **$18.00**</p>
                 </div>
-                <div class="gallery-item">
+                <div class="product-item">
                     <img src="Foto4.jpg" alt="Arreglo de Rosas Varias">
                     <h3>Arreglo Mixto</h3>
                     <p>Una combinación de colores para un impacto visual sorprendente.</p>
-                    <p class="price">Precio: $35.00</p>
+                    <p class="price-tag">Precio: **$35.00**</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <section id="catalogo-hw" class="catalog-section">
+    
+    <section id="catalogo-hw" class="products-section bg-light">
         <div class="container">
-            <h2>Catálogo de Ramos Hot Wheels</h2>
+            <h2>Catálogo de Ramos Hot Wheels 🏎️</h2>
             <p>Para los amantes de la velocidad y los detalles únicos. Cada ramo incluye rosas de papel y autos Hot Wheels, ¡una combinación que sorprende!</p>
             <div class="gallery-grid">
-                <div class="gallery-item">
+                <div class="product-item">
                     <img src="Foto5.jpg" alt="Ramo Hot Wheels Clásico">
                     <h3>Ramo de 5 Autos</h3>
                     <p>Un clásico con cinco autos Hot Wheels y rosas eternas. ¡Ideal para el fanático de los coches!</p>
-                    <p class="price">Precio: 65 Bs</p>
+                    <p class="price-tag">Precio: **65 Bs**</p>
                 </div>
-                <div class="gallery-item">
+                <div class="product-item">
                     <img src="Foto6.jpg" alt="Ramo Hot Wheels con dulces">
                     <h3>Ramo con Chocolate</h3>
                     <p>La combinación perfecta de autos, flores y dulces para un regalo inolvidable.</p>
-                    <p class="price">Precio: $45.00</p>
+                    <p class="price-tag">Precio: **$45.00**</p>
                 </div>
-                <div class="gallery-item">
+                <div class="product-item">
                     <img src="Foto7.jpg" alt="Ramo Hot Wheels personalizado">
                     <h3>Ramo Personalizado</h3>
                     <p>Elige tus autos favoritos y el color de las rosas para crear un ramo único.</p>
-                    <p class="price">Precio: Consultar</p>
+                    <p class="price-tag price-special">Precio: **Consultar**</p>
                 </div>
-                <div class="gallery-item">
+                <div class="product-item">
                     <img src="Foto8.jpg" alt="Ramo Hot Wheels Clásico 2">
                     <h3>Ramo de 10 Autos</h3>
                     <p>Un ramo más grande con diez autos Hot Wheels para los coleccionistas.</p>
-                    <p class="price">Precio: Cotizar</p>
+                    <p class="price-tag price-special">Precio: **Cotizar**</p>
                 </div>
-                <div class="gallery-item">
+                <div class="product-item">
                     <img src="Foto10.jpg" alt="Arreglo Hot Wheels en caja">
                     <h3>Arreglo en Caja</h3>
                     <p>Autos y rosas en una elegante caja, ideal para un regalo especial.</p>
-                    <p class="price">Precio: Cotizar</p>
+                    <p class="price-tag price-special">Precio: **Cotizar**</p>
                 </div>
-                <div class="gallery-item">
+                <div class="product-item">
                     <img src="Foto9.jpg" alt="Ramo de Hot Wheels con luces">
                     <h3>Ramo con Luces LED</h3>
                     <p>Un toque extra de magia con luces incorporadas para un regalo espectacular.</p>
-                    <p class="price">Precio: Consultar</p>
+                    <p class="price-tag price-special">Precio: **Consultar**</p>
                 </div>
-                 <div class="gallery-item">
+                <div class="product-item">
                     <img src="Foto11.jpg" alt="Ramo Hot Wheels Premium">
                     <h3>Ramo Premium</h3>
-                    <p>Ramo con camisetas de futbol de tu equipo favorito  edición especial y rosas de lujo.</p>
-                    <p class="price">Precio: 180 Bs</p>
+                    <p>Ramo con camisetas de futbol de tu equipo favorito edición especial y rosas de lujo.</p>
+                    <p class="price-tag">Precio: **180 Bs**</p>
                 </div>
-                <div class="gallery-item">
+                <div class="product-item">
                     <img src="Foto12.jpg" alt="Colección Hot Wheels Grande">
                     <h3>Colección Grande</h3>
                     <p>Un impresionante arreglo con una gran variedad de autos Hot Wheels.</p>
-                    <p class="price">Precio: Consultar</p>
+                    <p class="price-tag price-special">Precio: **Consultar**</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="catalogo-naturales" class="gallery">
+    <section id="catalogo-naturales" class="products-section">
         <div class="container">
-            <h2>Catálogo de Ramos de Flores Naturales</h2>
+            <h2>Catálogo de Ramos de Flores Naturales 🌷</h2>
             <p>La belleza y frescura de las flores de temporada, preparadas en ramos únicos.</p>
             <div class="gallery-grid">
-                <div class="gallery-item">
+                <div class="product-item">
                     <img src="Foto13.jpg" alt="Ramo de rosas naturales">
                     <h3>Ramo de Rosas Rojas</h3>
                     <p>Un clásico atemporal para celebrar el amor y la pasión.</p>
-                    <p class="price">Precio: Consultar</p>
+                    <p class="price-tag price-special">Precio: **Consultar**</p>
                 </div>
-                <div class="gallery-item">
+                <div class="product-item">
                     <img src="Foto14.jpg" alt="Ramo mixto de flores naturales">
                     <h3>Ramo de Lirios y Rosas</h3>
                     <p>Una combinación elegante de flores para cualquier ocasión.</p>
-                    <p class="price">Precio: Consultar</p>
+                    <p class="price-tag price-special">Precio: **Consultar**</p>
                 </div>
-                <div class="gallery-item">
+                <div class="product-item">
                     <img src="Foto15.jpg" alt="Bouquet de flores de campo">
                     <h3>Bouquet de Flores de Campo</h3>
                     <p>Un arreglo rústico y encantador, con la frescura del campo.</p>
-                    <p class="price">Precio: Consultar</p>
+                    <p class="price-tag price-special">Precio: **Consultar**</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="contact">
+    <section id="contacto" class="contact-section bg-light">
         <div class="container">
-            <h2>Contacto</h2>
+            <h2>Contáctame 💌</h2>
             <p>¿Interesado en mis creaciones o tienes alguna pregunta?</p>
-            <div class="contact-info">
-                <p><strong>Teléfono:</strong> <a href="tel:+59167295628">+591 67295628</a></p>
-                <p><strong>Correo:</strong> <a href="mailto:brisseilafloreschilo@gmail.com">brisseilafloreschilo@gmail.com</a></p>
-                <p><strong>WhatsApp:</strong> <a href="https://wa.me/59167295628" target="_blank">+591 67295628</a></p>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <p><strong>Teléfono:</strong></p>
+                    <a href="tel:+59167295628" class="contact-link">+591 67295628</a>
+                </div>
+                <div class="contact-item">
+                    <p><strong>Correo:</strong></p>
+                    <a href="mailto:brisseilafloreschilo@gmail.com" class="contact-link">brisseilafloreschilo@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <p><strong>WhatsApp:</strong></p>
+                    <a href="https://wa.me/59167295628" target="_blank" class="contact-link whatsapp-link">+591 67295628</a>
+                </div>
             </div>
-            <div class="social-links">
+            <div class="social-links-container">
                 <p>Sígueme en redes sociales:</p>
-                <a href="https://www.instagram.com/brisseilaflores.eternas/" target="_blank">Instagram</a>
-                <a href="https://www.facebook.com/brisseila.fores.chilo" target="_blank">Facebook</a>    
+                <a href="https://www.instagram.com/brisseilaflores.eternas/" target="_blank" class="social-link instagram">Instagram</a>
+                <a href="https://www.facebook.com/brisseila.fores.chilo" target="_blank" class="social-link facebook">Facebook</a>    
             </div>
         </div>
     </section>
 
-    <footer>
+    <footer class="main-footer">
         <div class="container">
             <p>&copy; 2025 Carlos Daniel Flores Chilo - Rosas Eternas de Papel. Todos los derechos reservados.</p>
         </div>
     </footer>
 </body>
+</html>
+
 
 
 
