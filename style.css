@@ -1,129 +1,330 @@
 /* ================================
-   ESTILOS GENERALES
+   ESTILOS GENERALES Y RESET
 ================================ */
+:root {
+    --primary-color: #e91e63; /* Rosa frambuesa vibrante y femenino */
+    --secondary-color: #ad1457; /* Rosa oscuro para hover/acentos */
+    --text-color: #4a4a4a; /* Gris oscuro suave para texto */
+    --background-light: #fef0f4; /* Rosa muy claro para secciones alternas */
+    --header-footer-bg: #4c2a4c; /* Morado oscuro/berenjena para encabezado/pie */
+    --border-radius: 8px;
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
 html {
-  font-size: 16px; /* Base */
-  scroll-behavior: smooth;
+    font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  color: #333;
-  background: #fff;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
 /* ================================
-   TIPOGRAFÍA RESPONSIVE
+   TIPOGRAFÍA Y HEADINGS
 ================================ */
-h1 {
-  font-size: clamp(1.8rem, 2.5vw + 1rem, 2.5rem);
-  margin: 0 0 1rem;
+.logo {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.5rem, 5vw + 1rem, 3.5rem);
+    margin: 0;
+    color: #ffffff; /* Sigue siendo blanco para contraste en header oscuro */
+}
+
+h1, h2, h3 {
+    margin: 0 0 1rem;
+    font-weight: 600;
 }
 
 h2 {
-  font-size: clamp(1.4rem, 2vw + 0.8rem, 2rem);
-  margin: 0 0 0.8rem;
+    font-size: clamp(1.8rem, 3vw + 1rem, 2.5rem);
+    color: var(--primary-color); /* Encabezados principales en rosa femenino */
 }
 
 h3 {
-  font-size: clamp(1.1rem, 1.5vw + 0.6rem, 1.5rem);
-  margin: 0 0 0.6rem;
+    font-size: clamp(1.2rem, 2vw + 0.8rem, 1.5rem);
+    margin-bottom: 0.5rem;
 }
 
-p {
-  font-size: clamp(0.9rem, 1vw + 0.6rem, 1.1rem);
-  margin: 0 0 1rem;
+.tagline {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.5rem, 3vw + 0.5rem, 2rem);
+    color: #ffffff; /* Blanco para contraste en header oscuro */
+    margin: 0 0 1.5rem;
 }
 
 /* ================================
-   NAVEGACIÓN
+   HEADER Y NAVEGACIÓN
 ================================ */
-nav {
-  background: #222;
-  padding: 1rem 2rem;
+.main-header {
+    background: var(--header-footer-bg); /* Morado oscuro */
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
-  justify-content: center;
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: clamp(0.9rem, 1vw + 0.5rem, 1rem);
-  transition: color 0.3s;
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 1.5rem;
+    margin: 1rem 0 0 0;
+    padding: 0;
+    justify-content: center;
 }
 
-nav ul li a:hover {
-  color: #ff4081;
+.main-nav ul li a {
+    color: #ffffff; /* Enlaces blancos en el header */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 5px 10px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: var(--primary-color); /* Rosa frambuesa al pasar el mouse */
+    border-bottom: 2px solid var(--primary-color);
 }
 
 /* ================================
    BOTONES
 ================================ */
 .btn {
-  display: inline-block;
-  font-size: clamp(0.9rem, 1vw + 0.6rem, 1.1rem);
-  padding: 10px 22px;
-  border-radius: 6px;
-  background: #ff4081;
-  color: #fff;
-  text-decoration: none;
-  transition: background 0.3s;
+    display: inline-block;
+    font-size: 1.1rem;
+    padding: 12px 28px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.btn:hover {
-  background: #e73370;
+.primary-btn {
+    background: var(--primary-color); /* Fondo del botón en rosa frambuesa */
+    color: #ffffff;
+    border: 2px solid var(--primary-color);
+}
+
+.primary-btn:hover {
+    background: var(--secondary-color); /* Rosa oscuro al pasar el mouse */
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
 }
 
 /* ================================
-   SECCIONES
+   SECCIONES Y LAYOUT
 ================================ */
 section {
-  padding: 4rem 2rem;
-  text-align: center;
+    padding: 5rem 1.5rem;
+    text-align: center;
 }
 
-/* ================================
-   ABOUT / PERFIL
-================================ */
-.about-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+.bg-light {
+    background: var(--background-light); /* Fondo rosa muy claro */
 }
 
-.about-image {
-  border-radius: 50%;
-  object-fit: cover;
-  width: clamp(150px, 25vw, 250px);
-  height: clamp(150px, 25vw, 250px);
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+/* --- HERO SECTION --- */
+.hero-section {
+    /* Necesitarás una imagen de fondo (ej: hero-bg.jpg) para este efecto */
+    background: linear-gradient(rgba(76, 42, 76, 0.6), rgba(76, 42, 76, 0.6)), url('hero-bg.jpg') no-repeat center center/cover; /* Morado oscuro con imagen */
+    color: #ffffff;
+    padding: 6rem 1.5rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+/* Fallback si no tienes hero-bg.jpg */
+.hero-section:not([style*="background-image"]) {
+     background: var(--header-footer-bg); /* Usa el morado oscuro como fallback */
 }
 
-.about-text {
-  max-width: 700px;
+
+.hero-section h2 {
+    color: #ffffff; /* H2 del hero en blanco */
+    font-size: clamp(2.5rem, 5vw + 1rem, 3.5rem);
+    margin-bottom: 1.5rem;
 }
 
+/* --- ABOUT SECTION --- */
+.about-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.profile-image {
+    border-radius: 50%;
+    object-fit: cover;
+    width: clamp(180px, 20vw, 250px);
+    height: clamp(180px, 20vw, 250px);
+    border: 6px solid var(--primary-color); /* Borde de la imagen en rosa */
+    box-shadow: var(--shadow-light);
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .about-info {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+/* --- PRODUCTOS / GALERÍA --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.product-item {
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.product-item h3 {
+    padding: 1rem 0;
+    color: var(--secondary-color); /* Títulos de productos en rosa oscuro */
+}
+
+.product-item p {
+    padding: 0 1rem;
+    font-size: 0.95rem;
+}
+
+.price-tag {
+    font-weight: 600;
+    color: var(--primary-color); /* Precios en rosa frambuesa */
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+    margin-bottom: 0;
+}
+
+.price-special {
+    color: var(--text-color); /* Precios "consultar" en gris suave */
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* --- CONTACTO SECTION --- */
+.contact-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.contact-item {
+    padding: 1rem;
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.contact-item strong {
+    color: var(--primary-color); /* Títulos de contacto en rosa frambuesa */
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.contact-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.contact-link:hover {
+    color: var(--primary-color); /* Rosa frambuesa al pasar el mouse */
+}
+
+.whatsapp-link {
+    color: #25D366; 
+    font-weight: 600;
+}
+
+.social-links-container {
+    margin-top: 2rem;
+}
+
+.social-link {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 0 10px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    opacity: 0.8;
+}
+
+.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.facebook {
+    background: #4267B2;
+}
 /* ================================
    FOOTER
 ================================ */
-footer {
-  background: #222;
-  color: #fff;
-  padding: 2rem 1rem;
-  text-align: center;
-  font-size: clamp(0.8rem, 1vw + 0.5rem, 0.95rem);
+.main-footer {
+    background: var(--header-footer-bg); /* Morado oscuro */
+    color: #d1b4d1; /* Un lavanda suave para el texto del footer */
+    padding: 1.5rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
 }
+
+.main-footer p {
+    margin: 0;
+}
+
 
 
