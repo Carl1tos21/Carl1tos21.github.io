@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Eternas - Portafolio y Catálogo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #8A4F4F; /* Un tono rojizo/terroso para un toque femenino y elegante */
+            --color-secondary: #B17D7D; /* Un tono más claro para contrastar */
+            --color-accent: #FDF8F7; /* CAMBIO: Color muy suave para fondos (Blanco cremoso) */
+            --color-text: #5A2D2D; /* Un marrón oscuro para el texto */
+            --color-light-text: #F7EFEF; /* Texto claro para fondos oscuros */
+            --color-border: #C29A9A; /* Color para bordes y marcos */
+            --color-card-bg: #FFFFFF; /* Fondo de tarjetas */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-accent); /* APLICACIÓN DEL NUEVO COLOR */
+            color: var(--color-text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: var(--color-light-text);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: var(--color-primary);
+        }
+
+        header {
+            background-color: var(--color-primary);
+            color: var(--color-light-text);
+            padding: 1rem 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-container {
+            margin-bottom: 10px;
+        }
+
+        .logo-container img {
+            max-width: 150px; 
+            height: auto;
+            border-radius: 50%; 
+            border: 3px solid var(--color-light-text);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; 
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--color-light-text);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 10px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            color: var(--color-primary);
+            background-color: var(--color-accent);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(138, 79, 79, 0.6), rgba(138, 79, 79, 0.6)), url('https://images.unsplash.com/photo-1563241527-3004b7be0ffd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            color: var(--color-light-text);
+            text-align: center;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 60vh; 
+            position: relative;
+            overflow: hidden; 
+        }
+
+        .hero::before, .hero::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23F7EFEF" d="M512 256c0 141.4-114.6 256-256 256S0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM256 128c-44.2 0-80 35.8-80 80s35.8 80 80 80s80-35.8 80-80s-35.8-80-80-80zM128 256c0-70.7 57.3-128 128-128s128 57.3 128 128c0 28.9-9.6 55.5-25.7 76.8c-10.1 13.4-25.1 23.2-42.3 23.2H196c-17.2 0-32.2-9.8-42.3-23.2C137.6 311.5 128 284.9 128 256z"/></svg>'); 
+            background-size: contain;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero::before {
+            top: 5%;
+            left: 5%;
+            transform: rotate(-20deg);
+        }
+
+        .hero::after {
+            bottom: 5%;
+            right: 5%;
+            transform: rotate(30deg);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn {
+            background-color: var(--color-secondary);
+            color: var(--color-light-text);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: var(--color-card-bg); /* Fondo blanco para las secciones internas */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            font-size: 2.8em;
+            color: var(--color-primary);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--color-secondary);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- Sobre Nosotros --- */
+        #about {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 40px 0;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            border: 4px solid var(--color-border);
+        }
+
+        .about-content {
+            flex: 2;
+            min-width: 300px;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .about-content h3 {
+            font-size: 2em;
+            color: var(--color-primary);
+            text-align: left;
+        }
+
+        /* --- Carrusel de Portafolio --- */
+        .carousel-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            border: 5px solid var(--color-border);
+        }
+
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            height: 450px; 
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(138, 79, 79, 0.7);
+            color: var(--color-light-text);
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1.5em;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background-color: var(--color-primary);
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
+        /* --- Catálogo de Productos --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        .product-card {
+            background-color: var(--color-card-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid var(--color-border); /* Marco para cada producto */
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 250px; 
+            object-fit: cover;
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-info h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            color: var(--color-text);
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--color-secondary);
+            margin-bottom: 15px;
+            border: 2px dashed var(--color-border); /* Marco de precio */
+            padding: 8px 15px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        .add-to-cart {
+            background-color: var(--color-primary);
+            color: var(--color-light-text);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--color-secondary);
+        }
+
+        /* --- Contacto y Redes Sociales --- */
+        #contact {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .social-links a {
+            color: var(--color-primary);
+            font-size: 2.5em;
+            transition: color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: var(--color-secondary);
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background-color: var(--color-primary);
+            color: var(--color-light-text);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 50px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin-bottom: 10px;
+            }
+
+            .hero h1 {
+                font-size: 3em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            .section-title {
+                font-size: 2.2em;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image, .about-content {
+                min-width: unset;
+                text-align: center;
+            }
+
+            .about-content h3 {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .logo-container img {
+                max-width: 100px;
+            }
+
+            .carousel-btn {
+                padding: 5px 10px;
+                font-size: 1.2em;
+            }
+
+            .social-links a {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="Foto1.png" alt="Flores Eternas Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Sobre Nosotros</a></li>
+                <li><a href="#portfolio">Portafolio</a></li>
+                <li><a href="#catalog">Catálogo</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Flores Eternas</h1>
+                <p>Donde la belleza perdura para siempre. Regala momentos inolvidables.</p>
+                <a href="#catalog" class="btn">Explora Nuestro Catálogo</a>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+            <h2 class="section-title">Nuestra Esencia</h2>
+            <div class="about-image">
+                <img src="Foto2.jpg" alt="Rosas Eternas Hechas a Mano">
+            </div>
+            <div class="about-content">
+                <h3>Sobre Flores Eternas</h3>
+                <p>En Flores Eternas, transformamos el arte floral en piezas que desafían el tiempo. Cada rosa es cuidadosamente seleccionada y tratada para conservar su esplendor y suavidad, ofreciendo un regalo que simboliza amor, amistad y momentos que duran para siempre.</p>
+                <p>Creemos en la magia de los detalles y la emoción que provoca una flor que nunca se marchita. Nuestro compromiso es brindarte no solo un producto, sino una experiencia inolvidable y un recuerdo imperecedero.</p>
+            </div>
+        </section>
+
+        <section id="portfolio" class="container">
+            <h2 class="section-title">Nuestras Creaciones</h2>
+
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <img src="Foto3.jpg" alt="Rosa Eterna Roja Clásica">
+                    <img src="Foto4.jpg" alt="Caja de Rosas Eternas Variadas">
+                    <img src="Foto5.jpg" alt="Rosa Eterna Azul Encantada">
+                    <img src="Foto6.jpg" alt="Bouquet Nupcial Eterno">
+                </div>
+                <button class="carousel-btn prev">&#10094;</button>
+                <button class="carousel-btn next">&#10095;</button>
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Explora nuestra galería de arreglos florales y cajas personalizadas. Cada imagen representa el detalle y la pasión que ponemos en cada una de nuestras creaciones. ¡Déjate inspirar!</p>
+        </section>
+
+        <section id="catalog" class="container">
+            <h2 class="section-title">Catálogo de Rosas Eternas</h2>
+
+            <div class="product-grid">
+                
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400x250/B17D7D/F7EFEF?text=Rosa+Roja+Apasionada" alt="Rosa Roja Apasionada">
+                    <div class="product-info">
+                        <h3>Rosa Eterna Roja Clásica</h3>
+                        <p>El símbolo atemporal del amor y la pasión. Perfecta para expresar tus sentimientos más profundos.</p>
+                        <div class="price">$35.00</div>
+                        <a href="#" class="add-to-cart">Añadir al Carrito</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400x250/C29A9A/5A2D2D?text=Rosa+Blanca+Pura" alt="Rosa Blanca Pura">
+                    <div class="product-info">
+                        <h3>Rosa Eterna Blanca Pura</h3>
+                        <p>Elegancia y pureza en su máxima expresión. Ideal para celebrar la inocencia y los nuevos comienzos.</p>
+                        <div class="price">$32.00</div>
+                        <a href="#" class="add-to-cart">Añadir al Carrito</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400x250/DCC5C5/5A2D2D?text=Rosa+Rosada+Delicada" alt="Rosa Rosada Delicada">
+                    <div class="product-info">
+                        <h3>Rosa Eterna Rosada Delicada</h3>
+                        <p>Un toque de dulzura y admiración. Ideal para expresar cariño y gratitud.</p>
+                        <div class="price">$30.00</div>
+                        <a href="#" class="add-to-cart">Añadir al Carrito</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400x250/E8D9D9/5A2D2D?text=Rosa+Azul+Misteriosa" alt="Rosa Azul Misteriosa">
+                    <div class="product-info">
+                        <h3>Rosa Eterna Azul Misteriosa</h3>
+                        <p>La rareza y el encanto de una flor de cuento de hadas. Para quienes aprecian lo único.</p>
+                        <div class="price">$40.00</div>
+                        <a href="#" class="add-to-cart">Añadir al Carrito</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400x250/D3BABA/5A2D2D?text=Caja+de+3+Rosas+Mixtas" alt="Caja de 3 Rosas Mixtas">
+                    <div class="product-info">
+                        <h3>Caja de 3 Rosas Mixtas</h3>
+                        <p>Una combinación perfecta de colores para un regalo especial y significativo.</p>
+                        <div class="price">$95.00</div>
+                        <a href="#" class="add-to-cart">Añadir al Carrito</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400x250/B89797/F7EFEF?text=Caja+Corazón+Rosa+Única" alt="Caja Corazón Rosa Única">
+                    <div class="product-info">
+                        <h3>Caja Corazón con Rosa Única</h3>
+                        <p>Un detalle romántico y elegante presentado en una hermosa caja en forma de corazón.</p>
+                        <div class="price">$50.00</div>
+                        <a href="#" class="add-to-cart">Añadir al Carrito</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2 class="section-title">¡Conéctate con Nosotros!</h2>
+            <p>¿Tienes alguna pregunta, pedido especial o simplemente quieres decir hola? ¡Nos encantaría escucharte!</p>
+            <p>Puedes contactarnos directamente o seguirnos en nuestras redes sociales para no perderte nuestras novedades.</p>
+
+            <div class="social-links">
+                
+                <a href="https://www.instagram.com/tu_cuenta_de_instagram" target="_blank" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1-27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                    </svg>
+                </a>
+                
+                <a href="https://www.facebook.com/tu_cuenta_de_facebook" target="_blank" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512">
+                        <path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/>
+                    </svg>
+                </a>
+                
+                <a href="https://wa.me/XXXXXXXXXXX" target="_blank" aria-label="WhatsApp">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                    </svg>
+                </a>
+            </div>
+            <p style="margin-top: 20px;">Email: <a href="mailto:info@floresempresas.com" style="color: var(--color-secondary); text-decoration: none;">info@floresempresas.com</a></p>
+            <p>Teléfono: <a href="tel:+123456789" style="color: var(--color-secondary); text-decoration: none;">+123 456 789</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Flores Eternas. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const carouselSlide = document.querySelector('.carousel-slide');
+        const carouselImages = document.querySelectorAll('.carousel-slide img');
+
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+
+        let counter = 0;
+        
+        // Función para obtener el ancho de la imagen, manejando el caso inicial
+        const getSize = () => carouselImages.length > 0 ? carouselImages[0].clientWidth : 0;
+        let size = getSize();
+
+        // Actualizar tamaño al inicio y en redimensionamiento
+        window.addEventListener('resize', () => {
+            size = getSize();
+            carouselSlide.style.transition = "none";
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        });
+
+        if (size > 0) {
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (counter >= carouselImages.length - 1) return;
+            carouselSlide.style.transition = "transform 0.5s ease-in-out";
+            counter++;
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (counter <= 0) return;
+            carouselSlide.style.transition = "transform 0.5s ease-in-out";
+            counter--;
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        });
+    </script>
+</body>
+</html>
